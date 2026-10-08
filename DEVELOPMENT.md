@@ -1,38 +1,32 @@
-# DEVELOPMENT.md · 仓库说明与索引
+# DEVELOPMENT.md · 仓库说明
 
-本文件是**门面 + 索引**：只放仓库级信息与入口，细节走各子目录。
+本文件是**门面 + 索引**：只放仓库级信息与入口，细节走各插件自己的仓库。
 
-## 项目概览
+## 定位
 
-`c4d-tools` 是个人 C4D 插件/工具的 **monorepo**：所有 C4D 插件与外围工具的**唯一源码源**。
-
-演进：**2026-10-08 建库** —— 把原先分散的 3 个独立仓库整合进来（原有各自独立四件套与 CI）。
+`c4d-tools` 是个人 C4D 插件的**索引仓库**：**只放文档，不放插件代码**。
+各插件的开发、构建、发行都在**各自的独立仓库**里。
 
 ## 结构
 
 ```
 c4d-tools/
-├─ plugins/       自研 C4D 插件（.pyp + res/）
-├─ tools/         非插件类工具
-├─ _template/     新插件骨架
-├─ tips/          技巧知识库（先占位，后生长）
-└─ releases/      发行包归档
+├─ README.md · AGENTS.md · DEVELOPMENT.md · CHANGELOG.md   四件套
+└─ _template/     新 C4D 插件骨架（本仓库唯一的非文档内容）
 ```
 
-`install.py` / `verify.py`（仿 ae-tools 的部署器与验收脚本）**预留**，视 C4D 部署方式二期再做。
+## 演进
 
-## 迁入记录
-
-| 模块 | 来自原仓库 | 类型 | 状态 |
-|---|---|---|---|
-| `plugins/c4d-mesh-face-sorter/` | `Simiely/c4d-mesh-face-sorter` | C4D 插件 `.pyp` | 稳定 |
-| `plugins/c4d-userdata-manager/` | `Simiely/c4d-userdata-manager` | C4D 插件 `.pyp` | 稳定 |
-| `tools/oc-plugin-activator/` | `Simiely/oc-plugin-activator` | Windows 工具 | 稳定 |
+- **2026-10-08 建库**：仿 `ae-tools` 建 monorepo，把 3 个独立仓库（2 个 C4D 插件 + 1 个 Windows 工具）
+  搬入本仓，原仓库归档。
+- **2026-10-08（同日调整）转为索引仓库**：发现归档会让 **Releases / Pages 全部变只读**
+  —— 三个原仓库都有**活着的 Pages 落地页与 Releases**，一归档就再也发不了版、改不了落地页。
+  于是改为「**各插件仓库独立维护 + 本仓库做索引**」，插件代码退回各自仓库，本仓只留文档与 `_template/`。
 
 ## 每次改动的动作清单
 
 | 场景 | 动作 |
 |---|---|
-| 新增插件 | `plugins/<名>/` 加目录 → README「工具总览」加行 → CHANGELOG 加节 → DEVELOPMENT 加章节 |
-| 发版 | 插件内版本号升级 + `CHANGELOG.md` 加节 |
+| 新增插件 | 建独立仓库 → README「插件一览」加行 → CHANGELOG 加节 |
+| 插件发版 | 在**插件自己的仓库**里升版本 + 发 Release → 回本仓同步索引表的版本/日期 |
 | 任何提交后 | 更新 `AGENTS.md` 顶部的**文档基线行**（日期 + 新 commit hash） |
