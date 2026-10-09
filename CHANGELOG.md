@@ -1,6 +1,20 @@
 # CHANGELOG.md · 仓库级变更
 
-## 仓库 · 2026-10-08 · **由 monorepo 转为索引仓库**
+## 仓库 · 2026-10-09 · **撤销索引化，恢复为总管仓库**
+
+- **恢复插件代码**：`plugins/c4d-mesh-face-sorter/`、`plugins/c4d-userdata-manager/` 共 **18 个文件**，
+  从本仓库历史提交 `66109db` 的树中**逐字节原样取回**（零改动，blob SHA 逐一比对）
+- 四件套改回**总管性质**（README 变为「插件一览 + 源码位置 + 安装 + 发版约定」）
+- **两个原独立仓库随即归档只读**，作为**历史快照**保留
+- **策略变更**：插件小而发版少，不值得「一插件一仓」→ 改为「**总管仓库装全部插件、直接迭代；
+  成员仓归档封存**」；只有 PC 软件（重、发版频繁）才沿用「一工具一仓 + 索引」
+- `tools/oc-plugin-activator/` **不恢复** —— 它是 **Windows 工具**（非 C4D 插件），
+  归 [`pc-tools`](https://github.com/Simiely/pc-tools) 索引
+- **发版约定**：统一在本仓库发，tag 形如 `<插件名>-vX.Y.Z`
+
+---
+
+## 仓库 · 2026-10-08 · **由 monorepo 转为索引仓库**（已撤销）
 
 - **删除全部插件副本**：`plugins/c4d-mesh-face-sorter/`、`plugins/c4d-userdata-manager/`、
   `tools/oc-plugin-activator/`，以及空壳 `releases/`（仅 `.gitkeep`）与 `tips/`（219 B 占位）
