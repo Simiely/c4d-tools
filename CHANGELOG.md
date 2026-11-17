@@ -1,5 +1,14 @@
 # CHANGELOG.md · 仓库级变更
 
+## 仓库 · 2026-11-17 · 接入单项目规范机器层
+
+- 接入 knowledge-base 的**单项目规范**（spec 2.1.3 / repo-kit 2.7.2，profile `link-only`）
+- 新增 `schema/taxonomy.json`、`tools/repo-kit/`、`tools/update-repo-kit.ps1`、`schema/kit.lock.json` 与 CI
+- 只查链接与入口（link-only）：`plugins/**/*.md` 是各插件的门面，不套页面契约；将来需要跨插件索引再升 `monorepo`
+- 验收：`REPO CHECK: PASS`（ERROR=0）、`KIT LOCK: PASS (v2.7.2, spec=2.1.3)`
+
+- `plugins/**/*.md` 走 `frontmatter_exempt.paths`，只查链接，不给插件文档套页面契约
+
 ## 仓库 · 2026-10-09 · **撤销索引化，恢复为总管仓库**
 
 - **恢复插件代码**：`plugins/c4d-mesh-face-sorter/`、`plugins/c4d-userdata-manager/` 共 **18 个文件**，
