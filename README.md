@@ -59,7 +59,7 @@ Release 附件放打包好的插件 zip。原独立仓库已归档，**不再发
 
 > 归档只为**封存历史快照** —— 归档不会删除已发布的 Release（下载链接仍可用），只是不能再发新版。
 >
-> 另有 [`oc-plugin-activator`](https://github.com/Simiely/oc-plugin-activator)（OctaneRender 缓存清理 / 资源部署）
+> 另有 `oc-plugin-activator`（已归档，原 OctaneRender 缓存清理 / 资源部署，仓库只读；Release v1.0 保留）
 > 是 **Windows 工具、不是 C4D 插件**，不属本仓库，归 [`pc-tools`](https://github.com/Simiely/pc-tools) 索引。
 >
 > 其它领域：[`pc-tools`](https://github.com/Simiely/pc-tools)（PC 工具索引）·
